@@ -143,10 +143,12 @@ export default class GoogleMap extends Component {
 
   static defaultProps = {
     distanceToMouse(pt, mousePos /* , markerProps */) {
-      return Math.sqrt(
-        (pt.x - mousePos.x) * (pt.x - mousePos.x) +
-          (pt.y - mousePos.y) * (pt.y - mousePos.y)
-      );
+      if (pt && mousePos){
+        return Math.sqrt(
+          (pt.x - mousePos.x) * (pt.x - mousePos.x) +
+            (pt.y - mousePos.y) * (pt.y - mousePos.y)
+        );
+      }
     },
     hoverDistance: 30,
     debounced: true,
